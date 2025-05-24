@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "qraccesses",
+  "info": {
+    "singularName": "qraccess",
+    "pluralName": "qraccesses",
+    "displayName": "qraccess",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fecha": {
+      "type": "datetime"
+    },
+    "confirmado": {
+      "type": "boolean"
+    },
+    "expirado": {
+      "type": "boolean"
+    },
+    "codigo": {
+      "type": "integer",
+      "unique": true
+    },
+    "expiracion": {
+      "type": "datetime"
+    },
+    "paciente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::paciente.paciente",
+      "inversedBy": "qraccesses"
+    }
+  }
+}

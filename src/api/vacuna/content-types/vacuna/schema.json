@@ -1,0 +1,102 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vacunas",
+  "info": {
+    "singularName": "vacuna",
+    "pluralName": "vacunas",
+    "displayName": "vacuna",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fecha": {
+      "type": "date"
+    },
+    "paciente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::paciente.paciente",
+      "inversedBy": "vacunas"
+    },
+    "nombre": {
+      "type": "enumeration",
+      "enum": [
+        "BCG",
+        "Hepatitis B",
+        "Pentavalente acelular",
+        "DTP",
+        "Rotavirus",
+        "Neumocócica conjugada",
+        "Neumocócica polisacárida",
+        "Influenza",
+        "Triple viral SRP",
+        "Doble viral SR",
+        "Hepatitis A",
+        "Varicela",
+        "VPH",
+        "COVID-19",
+        "Tétanos",
+        "Difteria",
+        "Tos ferina",
+        "Sarampión",
+        "Rubéola",
+        "Paperas",
+        "Poliomielitis",
+        "Meningocócica",
+        "Fiebre tifoidea",
+        "Fiebre amarilla",
+        "Herpes zóster",
+        "Haemophilus influenzae tipo b",
+        "Rabia",
+        "Virus sincitial respiratorio",
+        "Vacuna combinada hexavalente (cuando aplica)",
+        "Vacuna combinada Tdap (para adolescentes y embarazadas)"
+      ]
+    },
+    "dosis": {
+      "type": "enumeration",
+      "enum": [
+        "Primera dosis",
+        "Segunda dosis",
+        "Tercera dosis",
+        "Refuerzo",
+        "Dosis única",
+        "Anual",
+        "Esquema completo"
+      ]
+    },
+    "lote": {
+      "type": "string"
+    },
+    "via_administracion": {
+      "type": "enumeration",
+      "enum": [
+        "Intramuscular",
+        "Subcutánea",
+        "Intradérmica",
+        "Oral",
+        "Intranasal",
+        "Intravenosa"
+      ]
+    },
+    "sitio_aplicacion": {
+      "type": "string"
+    },
+    "observaciones": {
+      "type": "text"
+    },
+    "archivo_adjunto": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pacientes",
+  "info": {
+    "singularName": "paciente",
+    "pluralName": "pacientes",
+    "displayName": "paciente"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "apellidos": {
+      "type": "string"
+    },
+    "fecha_nacimiento": {
+      "type": "date"
+    },
+    "edad": {
+      "type": "integer"
+    },
+    "genero": {
+      "type": "enumeration",
+      "enum": [
+        "Masculino",
+        "Femenino",
+        "Otro"
+      ]
+    },
+    "curp": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "telefono_contacto": {
+      "type": "string"
+    },
+    "contacto_emergencia": {
+      "type": "string"
+    },
+    "correo_electronico": {
+      "type": "email"
+    },
+    "foto": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "tipo_sangre": {
+      "type": "string"
+    },
+    "alergias": {
+      "type": "string"
+    },
+    "enfermedades_cronicas": {
+      "type": "string"
+    },
+    "antecedentes_familiares": {
+      "type": "string"
+    },
+    "intervenciones_previas": {
+      "type": "string"
+    },
+    "medicamentos_actuales": {
+      "type": "string"
+    },
+    "discapacidad": {
+      "type": "string"
+    },
+    "ultima_consulta": {
+      "type": "date"
+    },
+    "hospital_preferencia": {
+      "type": "string"
+    },
+    "medico_cabecera": {
+      "type": "string"
+    },
+    "acepta_compartir_datos": {
+      "type": "boolean"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "paciente"
+    },
+    "vacunas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vacuna.vacuna",
+      "mappedBy": "paciente"
+    },
+    "estudios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::estudio.estudio",
+      "mappedBy": "paciente"
+    },
+    "consultas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::consulta.consulta",
+      "mappedBy": "paciente"
+    },
+    "qraccesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::qraccess.qraccess",
+      "mappedBy": "paciente"
+    }
+  }
+}

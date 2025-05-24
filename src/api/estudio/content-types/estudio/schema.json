@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "estudios",
+  "info": {
+    "singularName": "estudio",
+    "pluralName": "estudios",
+    "displayName": "estudio",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "tipo": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    },
+    "resultado": {
+      "type": "string"
+    },
+    "paciente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::paciente.paciente",
+      "inversedBy": "estudios"
+    },
+    "medico": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::medico.medico",
+      "inversedBy": "estudios"
+    },
+    "archivo_adjunto": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

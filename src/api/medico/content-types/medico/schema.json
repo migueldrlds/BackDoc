@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medicos",
+  "info": {
+    "singularName": "medico",
+    "pluralName": "medicos",
+    "displayName": "medico",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "apellidos": {
+      "type": "string"
+    },
+    "curp": {
+      "type": "string"
+    },
+    "correo_profesional": {
+      "type": "email"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "direccion_consultorio": {
+      "type": "string"
+    },
+    "foto_perfil": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cedula_profesional": {
+      "type": "string"
+    },
+    "matricula_sanitaria": {
+      "type": "string"
+    },
+    "especialidad": {
+      "type": "string"
+    },
+    "anios_experiencia": {
+      "type": "integer"
+    },
+    "institucion_actual": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "medico"
+    },
+    "consultas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::consulta.consulta",
+      "mappedBy": "medico"
+    },
+    "estudios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::estudio.estudio",
+      "mappedBy": "medico"
+    }
+  }
+}

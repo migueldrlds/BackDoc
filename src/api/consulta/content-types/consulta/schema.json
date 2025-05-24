@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consultas",
+  "info": {
+    "singularName": "consulta",
+    "pluralName": "consultas",
+    "displayName": "consulta",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "paciente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::paciente.paciente",
+      "inversedBy": "consultas"
+    },
+    "medico": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::medico.medico",
+      "inversedBy": "consultas"
+    },
+    "fecha_consulta": {
+      "type": "date"
+    },
+    "diagnostico": {
+      "type": "string"
+    },
+    "receta": {
+      "type": "string"
+    },
+    "observaciones": {
+      "type": "string"
+    },
+    "estudios_recomendados": {
+      "type": "string"
+    },
+    "archivo_adjunto": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "motivo_consulta": {
+      "type": "text"
+    },
+    "tipo_consulta": {
+      "type": "enumeration",
+      "enum": [
+        "Primera vez",
+        "Subsecuente",
+        "Urgencia"
+      ]
+    }
+  }
+}
